@@ -37,10 +37,10 @@ public class arbolHeap {
         }
         return array;
     }
-    public int[] deleteMax(int[] array){
+    public int[] deleteAny(int[] array){
         // Cambia el último elemento del montón con el elemento superior del montón, y luego lo elimina
-        array[0] = array[array.length-1];
-        int[] newarray = new int[array.length-2];
+        array[6] = array[array.length-1];// cambia la primera posicion por el valor del ultimo, para hacer una demostración se puede cambiar el valor de 6 por una variable la cual sería el indice del número a eliminar
+        int[] newarray = new int[array.length-2];//crea el nuevo array y lo hace del tamaño del array anterior menos dos ya que elimina el ultimo digito
         for (int i =0; i<array.length-2; ){
             newarray[i]=array[i];
             i++;
@@ -79,7 +79,7 @@ public class arbolHeap {
         System.out.println("Construyendo el gran montón de root:");
         hs.toString(hs.buildMaxHeap(array));
         System.out.println("Eliminar el elemento superior del montón:");
-        hs.toString(hs.deleteMax(array));
+        hs.toString(hs.deleteAny(array));
         System.out.println("Insertar elemento 63:");
         hs.toString(hs.insertData(array, 63));
         System.out.println("Big Root Heap Sort:");
