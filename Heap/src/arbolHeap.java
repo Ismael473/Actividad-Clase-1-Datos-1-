@@ -39,15 +39,21 @@ public class arbolHeap {
     }
     public int[] deleteAny(int[] array){
         // Cambia el último elemento del montón con el elemento superior del montón, y luego lo elimina
-        array[6] = array[array.length-1];// cambia la primera posicion por el valor del ultimo, para hacer una demostración se puede cambiar el valor de 6 por una variable la cual sería el indice del número a eliminar
-        int[] newarray = new int[array.length-2];//crea el nuevo array y lo hace del tamaño del array anterior menos dos ya que elimina el ultimo digito
-        for (int i =0; i<array.length-2; ){
-            newarray[i]=array[i];
-            i++;
+        for (int x = 0; x<array.length;x++){// cambia la primera posicion por el valor del ultimo, para hacer una demostración se puede cambiar el valor de 6 por una variable la cual sería el indice del número a eliminar
+            if (array[x] == 32){
+                array[x] = array[array.length-1];
+                int[] newarray = new int[array.length-1];//crea el nuevo array y lo hace del tamaño del array anterior menos dos ya que elimina el ultimo digito
+                for (int i =0; i<array.length-1; i++){
+                    newarray[i]=array[i];
+
+                }
+                // Ajusta el nodo raíz en este momento
+                adjustDownToUp(newarray, 0, newarray.length);
+                return newarray;
+            }
         }
-        // Ajusta el nodo raíz en este momento
-        adjustDownToUp(newarray, 0, newarray.length);
-        return newarray;
+
+        return array;
     }
     public int[] insertData(int[] array, int data){
         array [array.length-1] = data; // Coloque el nuevo nodo al final del montón
@@ -78,7 +84,7 @@ public class arbolHeap {
         int[] array = {87,45,78,32,17,65,53,9,122};
         System.out.println("Construyendo el gran montón de root:");
         hs.toString(hs.buildMaxHeap(array));
-        System.out.println("Eliminar el elemento indicado con el índice:");
+        System.out.println("Eliminar el 32:");
         hs.toString(hs.deleteAny(array));
         System.out.println("Insertar elemento 63:");
         hs.toString(hs.insertData(array, 63));
