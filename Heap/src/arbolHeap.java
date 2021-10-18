@@ -78,7 +78,7 @@ public class arbolHeap {
         int[] array = {87,45,78,32,17,65,53,9,122};
         System.out.println("Construyendo el gran montón de root:");
         hs.toString(hs.buildMaxHeap(array));
-        System.out.println("Eliminar el elemento superior del montón:");
+        System.out.println("Eliminar el elemento indicado con el índice:");
         hs.toString(hs.deleteAny(array));
         System.out.println("Insertar elemento 63:");
         hs.toString(hs.insertData(array, 63));
